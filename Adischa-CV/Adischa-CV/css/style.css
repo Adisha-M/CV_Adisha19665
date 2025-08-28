@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+/* Pengaturan Dasar */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #5c5c5c; /* Warna teks lebih lembut */
+    overflow-x: hidden; /* Mencegah scroll horizontal karena bintang jatuh */
+}
+
+/* Pengaturan setiap halaman/section */
+.page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2em;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden; /* Penting agar bintang tidak keluar */
+}
+
+/* Warna latar belakang pastel */
+#home {
+    background-color: #e3f2fd; /* Biru muda pastel */
+}
+
+#about {
+    background-color: #fffde7; /* Kuning muda pastel */
+}
+
+#experience {
+    background-color: #f3e5f5; /* Lavender pastel */
+}
+
+#gallery {
+    background-color: #fce4ec; /* Pink muda pastel */
+}
+
+.content {
+    max-width: 900px;
+    position: relative; /* Agar konten di atas bintang */
+    z-index: 2;
+}
+
+/* Hiasan Bintang */
+.stars-bg {
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,0) 2px),
+        radial-gradient(white, rgba(255,255,255,0) 1px);
+    background-size: 50px 50px, 30px 30px;
+    background-position: 0 0, 15px 15px;
+}
+
+/* Halaman 1: Beranda (Profil) */
+.profile-pic {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    margin-bottom: 1em;
+}
+
+h1 {
+    font-size: 3.8em;
+    margin: 0.2em 0;
+    font-weight: 700;
+    color: #4a4a4a;
+}
+
+.subtitle {
+    font-size: 1.6em;
+    color: #666;
+}
+
+/* Halaman 2: Tentang Saya */
+h2 {
+    font-size: 3em;
+    margin-bottom: 1em;
+    font-weight: 700;
+    color: #4a4a4a;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 2em;
+    border-radius: 20px;
+}
+
+.info, .contact {
+    width: 45%;
+}
+
+h3 {
+    font-size: 1.8em;
+    border-bottom: 3px solid #f8bbd0; /* Pink pastel */
+    padding-bottom: 0.3em;
+    margin-bottom: 0.8em;
+}
+
+.info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info li, .contact p {
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+}
+
+/* Halaman 3: Pengalaman & Keahlian */
+.experience-container {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    width: 100%;
+}
+
+.column {
+    width: 30%;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1.5em;
+    border-radius: 20px;
+}
+
+.column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.column li {
+    background-color: #e1bee7; /* Ungu muda */
+    margin-bottom: 0.8em;
+    padding: 0.8em;
+    border-radius: 10px;
+}
+
+/* Halaman 4: Galeri */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5em;
+    width: 100%;
+}
+
+.gallery-item {
+    background-color: #fff;
+    border-radius: 20px; /* Sudut lebih bulat */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.gallery-caption {
+    padding: 1.2em;
+}
+
+.gallery-caption h4 {
+    margin: 0 0 0.5em 0;
+    font-size: 1.3em;
+}
+
+.gallery-caption p {
+    margin: 0;
+    font-size: 1em;
+    color: #757575;
+}
+
+/* Panah Navigasi */
+.arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3em;
+    color: rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    animation: bounce 2s infinite;
+    z-index: 3;
+}
+
+.top-arrow {
+    animation: none;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-20px); }
+    60% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* Penyesuaian untuk Mobile */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2.2em; }
+    .subtitle { font-size: 1.2em; }
+
+    .about-container, .experience-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .about-container {
+        padding: 1em;
+    }
+
+    .info, .contact, .column {
+        width: 90%;
+        margin-bottom: 2em;
+        text-align: center;
+        padding: 1em;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
